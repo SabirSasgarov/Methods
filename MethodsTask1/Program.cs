@@ -91,7 +91,55 @@ namespace MethodsTask1
 			//char axtarilan = char.Parse(Console.ReadLine());
 			//Console.WriteLine(HowManyLetter(str,axtarilan));
 			#endregion
-			
+
+			#region task8
+			//string str = "        salam masin masinka";
+			//Console.WriteLine(DeleteFirstSpace(str));
+			#endregion
+
+			#region task9
+			//int a=int.Parse(Console.ReadLine());
+			//int b=int.Parse(Console.ReadLine());
+			//char opr = char.Parse(Console.ReadLine());
+			//Calculator(a,b,opr);
+			#endregion
+
+			#region task10
+			//string str = "salam masin masinka";
+			//Console.WriteLine("Axtardiginiz herfi daxil edin: ");
+			//char axtarilan = char.Parse(Console.ReadLine());
+			//HowManySpecialLetter(str, axtarilan);
+			#endregion
+
+			#region tas11
+			//Console.WriteLine("Musbet bir cut eded daxil edin:");
+			//int eded = int.Parse(Console.ReadLine());
+			//while (eded % 2 != 0 || eded < 0)
+			//{
+			//	if (eded % 2 != 0 && eded < 0)
+			//	{
+			//		Console.WriteLine("Eded hem tekdir, hem de menfidir! Yeniden cehd edin: ");
+			//		eded = int.Parse(Console.ReadLine());
+			//	}
+			//	else if (eded % 2 != 0)
+			//	{
+			//		Console.WriteLine("Eded tekdir! Yeniden cehd edin: ");
+			//		eded = int.Parse(Console.ReadLine());
+			//	}
+			//	else
+			//	{
+			//		Console.WriteLine("Eded menfidir! Yeniden cehd edin: ");
+			//		eded = int.Parse(Console.ReadLine());
+			//	}
+			//}
+			//Console.WriteLine(Power(eded));
+			#endregion
+
+			#region task12
+			//Console.WriteLine("Tehsil novunu daxil edin: (programming, system, design)");
+			//string tehsilNovu = Console.ReadLine();
+			//TehsilSaati(tehsilNovu);
+			#endregion
 		}
 		static int Power(int a)
         {
@@ -270,11 +318,73 @@ namespace MethodsTask1
 			}
 			return count;
 		}
+		static string DeleteFirstSpace(string str)
+		{
+			string newStr="";
+			int count = default;
+			foreach (char s in str)
+			{
+				if (s == ' ' && count == 0)
+					continue;
+				count++;
+				Console.Write(s);
+			}
+			return newStr;
+		}
+		static void Calculator(int a, int b, char ch)
+		{
+			switch(ch){
+				case '-':
+					Console.WriteLine($"Ededlerin ferqi {(a - b)} edir.");
+						break;
+				case '+':
+					Console.WriteLine($"Ededlerin cemi {(a + b)} edir.");
+						break;
+				case '*':
+					Console.WriteLine($"Ededlerin hasili {(a * b)} edir.");
+						break;
+				case '/':
+					if(b==0)
+						Console.WriteLine("0-a bolme yoxdur!");
+					else
+						Console.WriteLine($"Ededleri boldukde {(a / b)} edir.");
+					break;
+				default:
+					Console.WriteLine("Emeliyyat duzgun deyil");
+					break;
+			}
+		}
+		static void HowManySpecialLetter(string str,char ch)
+		{
+			int count = default;
+			foreach (char letter in str)
+			{
+				if (ch == letter)
+					count++;
+			}
+			if(count==0)
+				Console.WriteLine($"Axtardiginiz {ch} herfi tapilmadi.");
+			else
+				Console.WriteLine($"Axtardiginiz {ch} herfinden {count} defe tapildi.");
 
-
-
-
-
-
-	}
+		}
+		static void TehsilSaati(string str)
+		{
+			switch (str)
+			{
+				case "programming":
+					Console.WriteLine($"{str}: 400 saat.");
+					break;
+				case "system":
+					Console.WriteLine($"{str}: 200 saat.");
+					break;
+				case "design":
+					Console.WriteLine($"{str}: 250 saat.");
+					break;
+				default:
+					Console.WriteLine("Tehsil novu yanlisdir.");
+					break;
+			}
+		}
+		}
 }
